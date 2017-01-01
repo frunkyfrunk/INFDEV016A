@@ -1,0 +1,17 @@
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/Backend.exe.mdb
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/Backend.exe
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/Backend.exe
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/Backend.exe.mdb
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/MonoGame.Framework.dll
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/NVorbis.dll
+/home/sjors/Projects/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/OpenTK.dll
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/Backend.exe.mdb
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/Backend.exe
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/Backend.exe
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/obj/x86/Debug/Backend.exe.mdb
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/MonoGame.Framework.dll
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/NVorbis.dll
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/OpenTK.dll
+/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Debug/FSharp.Core.dll
