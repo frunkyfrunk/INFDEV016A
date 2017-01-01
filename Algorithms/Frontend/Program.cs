@@ -106,12 +106,23 @@ namespace EntryPoint
 			Kdtree.AddNodes (specialbuildingslist, 0);
 
 			List<List<Vector2>> withinDistance = new List<List<Vector2>>();
-			foreach (var house in housesAndDistances)
+			/*foreach (var house in housesAndDistances)
 			{
 				withinDistance.Add(Kdtree.GetAllNodesWithinDistance(new List<Vector2>(), house.Item1, house.Item2).ToList());
+			}*/
+			var getall = new List<Vector2> ();
+			Kdtree.RangeSearch (getall);
+			var notinlist = new List<Vector2> ();
+			foreach (var d in specialbuildingslist) {
+				if (!getall.Contains (d)) {
+					notinlist.Add (d);
+				}
 			}
 
-			return withinDistance;
+			yield return getall;
+
+
+
 		}
 
 		private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 

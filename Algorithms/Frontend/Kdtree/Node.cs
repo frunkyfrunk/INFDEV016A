@@ -19,6 +19,11 @@ namespace Frontend
 		public Node (Vector2 house, List<Vector2> list, int dimension)
 		{
 			this.house = house;
+
+			if(house.X == 48 && house.Y == 0){
+				AddNodes (list, dimension);
+
+			}
 			AddNodes (list, dimension);
 		}
 		public void AddNodes(List<Vector2> buildings, int dimension)
@@ -29,16 +34,26 @@ namespace Frontend
 				SortList (buildings, axis);
 				int median = count / 2;
 				house = buildings [median];
-				if(buildings.Count > 2){
-				Vector2 Left = buildings [median - 1];
-				Vector2 Right = buildings [median + 1];
-				dimension++;
-				var leftList = buildings.Take (median).ToList();
-				var rightList = buildings.GetRange (median + 1, count / 2 - 1).ToList();
 
-				left = new Node (Left, leftList, dimension);
-				right = new Node (Right, rightList, dimension);
+				dimension++;
+
+					
+
+				if (buildings.Count > 1) {
+					
+					Vector2 Left = buildings [median - 1];
+					var leftList = buildings.Take (median).ToList ();
+					left = new Node (Left, leftList, dimension);
+				} else {
+
 				}
+				if (buildings.Count > 2 ) {
+					Vector2 Right = buildings [median + 1];
+					var rightList = buildings.GetRange (median + 1, count / 2 - 1).ToList ();
+					right = new Node (Right, rightList, dimension);
+				} 
+
+
 			}
 
 		}
@@ -61,7 +76,8 @@ namespace Frontend
 			if (root == null)
 				return foundNodes;
 
-			if (Vector2.Distance(startPosition, root.house) <= distance)
+
+			if (Vector2.Distance(startPosition, root.house) <= distance)				
 				foundNodes.Add(root.house);
 
 			GetAllNodesWithinDistance(foundNodes, root.left, startPosition, distance);
@@ -69,7 +85,22 @@ namespace Frontend
 
 			return foundNodes;
 		}
+
+
+		public List<Vector2> RangeSearch(List<Vector2> foundNodes)
+		{
+			foundNodes.Add (house);
+			if(left != null)
+				left.RangeSearch (foundNodes);
+			if(right != null)
+				right.RangeSearch (foundNodes);
+			return foundNodes;
+		}
+
+	
 	}
+
+
 }
 
 
