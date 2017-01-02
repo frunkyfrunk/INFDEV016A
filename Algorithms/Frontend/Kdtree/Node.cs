@@ -10,52 +10,59 @@ namespace Frontend
 		public Node left;
 		public Node right;
 		public Vector2 house;
-
+		public int dimension;
+		public Node ()
+		{
+		}
 		public Node (Vector2 house)
 		{
 			this.house = house;
 		}
 
-		public Node (Vector2 house, List<Vector2> list, int dimension)
+		public Node (Vector2 house, int dimension)
 		{
+			this.dimension = dimension;
 			this.house = house;
-
-			if(house.X == 48 && house.Y == 0){
-				AddNodes (list, dimension);
-
-			}
-			AddNodes (list, dimension);
+			AddNode (house, dimension);
 		}
-		public void AddNodes(List<Vector2> buildings, int dimension)
-		{
-			if (buildings.Count > 0) {
-				int count = buildings.Count;
-				int axis = dimension % count;
-				SortList (buildings, axis);
-				int median = count / 2;
-				house = buildings [median];
+	
 
-				dimension++;
+		public void AddNode(Vector2 building, int dimension){
+			int axis = dimension % 2;
+			dimension++;
+			if (house == new Vector2 (0, 0)) {
+				house = building;
+			} 
 
-					
-
-				if (buildings.Count > 1) {
-					
-					Vector2 Left = buildings [median - 1];
-					var leftList = buildings.Take (median).ToList ();
-					left = new Node (Left, leftList, dimension);
-				} else {
-
-				}
-				if (buildings.Count > 2 ) {
-					Vector2 Right = buildings [median + 1];
-					var rightList = buildings.GetRange (median + 1, count / 2 - 1).ToList ();
-					right = new Node (Right, rightList, dimension);
+			if (axis == 0) {
+				if (building.X < house.X) {
+					left = getNode (left, building, dimension);
+				} else if (building.X > house.X) {
+					right = getNode (right, building, dimension);
+				} else if (building.Y < house.Y) {
+					left = getNode (left, building, dimension);
+				} else if (building.Y > house.Y) {
+					right = getNode (right, building, dimension);
 				} 
-
-
+			} else if (axis == 1) {
+				if (building.Y < house.Y) {
+					left = getNode (left, building, dimension);
+				} else if (building.Y > house.Y) {
+					right = getNode (right, building, dimension);
+				} else if (building.X < house.X) {
+					left = getNode (left, building, dimension);
+				} else if (building.X > house.X) {
+					right = getNode (right, building, dimension);
+				}
+			} 
+		}
+		public Node getNode(Node node, Vector2 building, int dimension){
+			if (node == null) {
+				node = new Node (building, dimension);
+			} else {
+				node.AddNode (building, dimension);
 			}
-
+			return node;
 		}
 
 		public void SortList(List<Vector2> buildings, int axis){
@@ -87,15 +94,6 @@ namespace Frontend
 		}
 
 
-		public List<Vector2> RangeSearch(List<Vector2> foundNodes)
-		{
-			foundNodes.Add (house);
-			if(left != null)
-				left.RangeSearch (foundNodes);
-			if(right != null)
-				right.RangeSearch (foundNodes);
-			return foundNodes;
-		}
 
 	
 	}

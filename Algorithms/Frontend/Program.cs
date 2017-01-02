@@ -101,28 +101,19 @@ namespace EntryPoint
 		private static IEnumerable<IEnumerable<Vector2>> FindSpecialBuildingsWithinDistanceFromHouse(IEnumerable<Vector2> specialBuildings, 
 													     IEnumerable<Tuple<Vector2, float>> housesAndDistances)
 		{
-			var specialbuildingslist = specialBuildings.ToList ();
-			var Kdtree = new Node (specialbuildingslist[0]);
-			Kdtree.AddNodes (specialbuildingslist, 0);
-
-			List<List<Vector2>> withinDistance = new List<List<Vector2>>();
-			/*foreach (var house in housesAndDistances)
+			var Kdtree = new Node ();
+			foreach (var house in specialBuildings) {
+				Kdtree.AddNode (house, 0);
+			}
+			List<Vector2> withinDistance = new List<Vector2>();
+			foreach (var house in housesAndDistances)
 			{
-				withinDistance.Add(Kdtree.GetAllNodesWithinDistance(new List<Vector2>(), house.Item1, house.Item2).ToList());
-			}*/
-			var getall = new List<Vector2> ();
-			Kdtree.RangeSearch (getall);
-			var notinlist = new List<Vector2> ();
-			foreach (var d in specialbuildingslist) {
-				if (!getall.Contains (d)) {
-					notinlist.Add (d);
+				var WithinDistanceFromHouse = Kdtree.GetAllNodesWithinDistance(new List<Vector2>(), house.Item1, house.Item2);
+				foreach (var specialbuilding in WithinDistanceFromHouse) {
+					withinDistance.Add (specialbuilding);
 				}
 			}
-
-			yield return getall;
-
-
-
+			 yield return withinDistance;
 		}
 
 		private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
