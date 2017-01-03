@@ -4,13 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/numberingFont.spritefont</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/circle.png</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/crosshair.png</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/crosshairs.png</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/lighting.png</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/linearGlow.png</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/roads.jpg</File>
-    <File>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/tileset.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/numberingFont.spritefont</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/circle.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/crosshair.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/crosshairs.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/lighting.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/linearGlow.png</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/roads.jpg</File>
+    <File>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/tileset.png</File>
   </SourceFiles>
 </SourceFileCollection>

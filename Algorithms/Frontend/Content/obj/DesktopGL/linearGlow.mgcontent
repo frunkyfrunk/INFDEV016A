@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/linearGlow.png</SourceFile>
+  <SourceFile>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/linearGlow.png</SourceFile>
   <SourceTime>2017-01-01T10:43:33+01:00</SourceTime>
-  <DestFile>/home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Frontend/Content/bin/DesktopGL/linearGlow.xnb</DestFile>
-  <DestTime>2017-01-01T10:54:17+01:00</DestTime>
+  <DestFile>/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Frontend/Content/bin/DesktopGL/linearGlow.xnb</DestFile>
+  <DestTime>2017-01-02T10:14:51+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-01-01T10:53:45+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
