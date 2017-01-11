@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Frontend/Frontend.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Frontend/Dijkstra/Dijkstra.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Frontend/Program.cs">
     <Files>
-      <File FileName="Frontend/Kdtree/Node.cs" Line="41" Column="5" />
-      <File FileName="Frontend/Program.cs" Line="124" Column="74" />
+      <File FileName="Frontend/Kdtree/Node.cs" Line="88" Column="3" />
+      <File FileName="Frontend/Program.cs" Line="70" Column="1" />
       <File FileName="Backend/Game.fs" Line="1" Column="1" />
-      <File FileName="Frontend/Dijkstra/Dijkstra.cs" Line="121" Column="4" />
+      <File FileName="Frontend/Dijkstra/Dijkstra.cs" Line="41" Column="5" />
+      <File FileName="../../AlgorithmsAssignment/Algorithms/Backend/Game.fs" Line="104" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

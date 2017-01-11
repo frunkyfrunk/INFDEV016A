@@ -5,3 +5,10 @@
 /home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Release/NVorbis.dll
 /home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Release/OpenTK.dll
 /home/meechyfranko/Documents/School/AlgorithmsAssignment/Algorithms/Backend/bin/Release/FSharp.Core.dll
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/obj/x86/Release/.NETFramework,Version=v4.5.AssemblyAttribute.fs
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/bin/Release/Backend.exe
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/obj/x86/Release/Backend.exe
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/bin/Release/MonoGame.Framework.dll
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/bin/Release/NVorbis.dll
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/bin/Release/OpenTK.dll
+/home/meechyfranko/Documents/School/INFDEV016A/Algorithms/Backend/bin/Release/FSharp.Core.dll

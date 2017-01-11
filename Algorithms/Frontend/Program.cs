@@ -57,45 +57,30 @@ namespace EntryPoint
 			return buildings;
 		}
 
-		static public void DoMerge(Vector2[] buildings, int left, int mid, int right, Vector2 house)
-		{
-			Vector2[] temp = new Vector2[buildings.Length];
-			int i, left_end, num_elements, tmp_pos;
-
-			left_end = (mid - 1);
-			tmp_pos = left;
-			num_elements = (right - left + 1);
-
-			while ((left <= left_end) && (mid <= right))
-			{
-				if (Vector2.Distance(buildings[left], house) <= Vector2.Distance(buildings[mid], house))
-					temp[tmp_pos++] = buildings[left++];
-				else
-					temp[tmp_pos++] = buildings[mid++];
-			}
-
-			while (left <= left_end)
-				temp[tmp_pos++] = buildings[left++];
-
-			while (mid <= right)
-				temp[tmp_pos++] = buildings[mid++];
-
-			for (i = 0; i < num_elements; i++)
-			{
-				buildings[right] = temp[right];
-				right--;
+		public static void MergeSort(Vector2[] buildings, int left, int right, Vector2 house){
+			int middle = (left + right) / 2;
+			if (left < right) {
+				MergeSort (buildings, left, middle, house);
+				MergeSort (buildings, middle+1, right, house);
+				Merge (buildings, left, middle+1, house);
 			}
 		}
-		static public void MergeSort(Vector2[] buildings, int left, int right, Vector2 house)
-		{
-			int mid;
-			if (right > left)
-			{
-				mid = (right + left) / 2;
-				MergeSort(buildings, left, mid, house);
-				MergeSort(buildings, (mid + 1), right, house);
-				DoMerge(buildings, left, (mid + 1), right, house);
+
+		public static void Merge(Vector2[] buildings, int left, int right, Vector2 house){
+			Vector2 temp;
+
+			for (int iterated=left; iterated < right; iterated++) {
+				int count = iterated;
+				while (count >= 0) {
+					if (Vector2.Distance (buildings [count], house) > Vector2.Distance (buildings [count + 1], house)) {
+						temp = buildings [count];
+						buildings [count] = buildings [count + 1];
+						buildings [count + 1] = temp;
+					}
+					count--;
+				}
 			}
+
 		}
 
 		private static IEnumerable<IEnumerable<Vector2>> FindSpecialBuildingsWithinDistanceFromHouse(IEnumerable<Vector2> specialBuildings, 
@@ -105,15 +90,12 @@ namespace EntryPoint
 			foreach (var house in specialBuildings) {
 				Kdtree.AddNode (house, 0);
 			}
-			List<Vector2> withinDistance = new List<Vector2>();
-			foreach (var house in housesAndDistances)
-			{
-				var WithinDistanceFromHouse = Kdtree.GetAllNodesWithinDistance(new List<Vector2>(), house.Item1, house.Item2);
-				foreach (var specialbuilding in WithinDistanceFromHouse) {
-					withinDistance.Add (specialbuilding);
-				}
+			var result = new List<List<Vector2>> ();
+			foreach (var house in housesAndDistances) {
+				result.Add(Kdtree.RangeSearch(new List<Vector2>(), house.Item1, house.Item2).ToList());
 			}
-			 yield return withinDistance;
+
+			return result;
 		}
 
 		private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
@@ -146,3 +128,45 @@ namespace EntryPoint
 		}
     }
 }
+/*
+static public void MergeSort(Vector2[] buildings, int left, int right, Vector2 house)
+		{
+			int mid;
+			if (right > left)
+			{
+				mid = (right + left) / 2;
+				MergeSort(buildings, left, mid, house);
+				MergeSort(buildings, (mid + 1), right, house);
+				DoMerge(buildings, left, (mid + 1), right, house);
+			}
+		}
+		static public void DoMerge(Vector2[] buildings, int left, int mid, int right, Vector2 house)
+		{
+			Vector2[] temp = new Vector2[buildings.Length];
+			int i, left_end, num_elements, tmp_pos;
+
+			left_end = (mid - 1);
+			tmp_pos = left;
+			num_elements = (right - left + 1);
+
+			while ((left <= left_end) && (mid <= right))
+			{
+				if (Vector2.Distance(buildings[left], house) <= Vector2.Distance(buildings[mid], house))
+					temp[tmp_pos++] = buildings[left++];
+				else
+					temp[tmp_pos++] = buildings[mid++];
+			}
+
+			while (left <= left_end)
+				temp[tmp_pos++] = buildings[left++];
+
+			while (mid <= right)
+				temp[tmp_pos++] = buildings[mid++];
+
+			for (i = 0; i < num_elements; i++)
+			{
+				buildings[right] = temp[right];
+				right--;
+			}
+		}
+*/

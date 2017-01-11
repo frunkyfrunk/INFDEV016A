@@ -16,7 +16,7 @@ namespace Frontend
 
 		}
 		public List<Tuple<Vector2,Vector2>> getShortestPath(Vector2 startingBuilding, Vector2 destinationBuilding){
-			return graph.shortest_path (startingBuilding, destinationBuilding);
+			return graph.shortestPath (startingBuilding, destinationBuilding);
 		}
 	}
 
@@ -28,36 +28,29 @@ namespace Frontend
 		{
 			vertices[name] = edges;
 		}
-		public void addRoad(Tuple<Vector2, Vector2> road){
+
+		public void addRoad(Tuple<Vector2,Vector2> road){
 			insertNode (road.Item1);
 			insertNode (road.Item2);
 			insertRoad (road);
 		}
-
-		public void insertNode(Vector2 Node){
-			if (!vertices.ContainsKey(Node)) 
-
-			{
-				Dictionary<Vector2, int> emptyRoadsList = new Dictionary<Vector2, int>();
-				vertices[Node] = emptyRoadsList; 
+		public void insertNode(Vector2 node){
+			if (!vertices.ContainsKey (node)) {
+				Dictionary<Vector2, int> roadList = new Dictionary<Vector2, int> ();
+				vertices [node] = roadList;
 			}
 		}
-
 		public void insertRoad(Tuple<Vector2, Vector2> road){
-			Vector2 point1 = road.Item1;
-			Vector2 point2 = road.Item2;
-			int length = (int) Vector2.Distance (point1, point2);
-			if (!vertices[point1].ContainsKey(point2)) 
-			{
-				vertices[point1].Add(point2, length); 
+			int distance = (int) Vector2.Distance (road.Item1, road.Item2);
+			if (!vertices [road.Item1].ContainsKey (road.Item2)) {
+				vertices [road.Item1].Add (road.Item2, distance);
 			}
-			if (!vertices[point2].ContainsKey(point1)) 
-			{
-				vertices[point2].Add(point1, length); 
+			if (!vertices [road.Item2].ContainsKey (road.Item1)) {
+				vertices [road.Item2].Add (road.Item1, distance);
 			}
 		}
 
-		public List<Tuple<Vector2, Vector2>> shortest_path(Vector2 start, Vector2 finish)
+		public List<Tuple<Vector2, Vector2>> shortestPath(Vector2 start, Vector2 finish)
 		{
 			var previous = new Dictionary<Vector2, Vector2>();
 			var distances = new Dictionary<Vector2, int>();
@@ -119,3 +112,33 @@ namespace Frontend
 			return path;
 		}
 	}}
+/*
+public void addRoad(Tuple<Vector2, Vector2> road){
+			insertNode (road.Item1);
+			insertNode (road.Item2);
+			insertRoad (road);
+		}
+
+		public void insertNode(Vector2 Node){
+			if (!vertices.ContainsKey(Node)) 
+
+			{
+				Dictionary<Vector2, int> emptyRoadsList = new Dictionary<Vector2, int>();
+				vertices[Node] = emptyRoadsList; 
+			}
+		}
+
+		public void insertRoad(Tuple<Vector2, Vector2> road){
+			Vector2 point1 = road.Item1;
+			Vector2 point2 = road.Item2;
+			int length = (int) Vector2.Distance (point1, point2);
+			if (!vertices[point1].ContainsKey(point2)) 
+			{
+				vertices[point1].Add(point2, length); 
+			}
+			if (!vertices[point2].ContainsKey(point1)) 
+			{
+				vertices[point2].Add(point1, length); 
+			}
+		}
+*/
